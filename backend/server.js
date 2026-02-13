@@ -113,7 +113,7 @@ app.get('/api/affirmation', async (req, res) => {
   }
 });
 
-require('./passport'); // Passport config
+// require('./passport'); // Passport config
 
 const SESSION_SECRET = process.env.SESSION_SECRET;
 if (!SESSION_SECRET) {
@@ -127,8 +127,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: process.env.NODE_ENV === 'production' },
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use('/auth', require('./routes/auth'));
 
