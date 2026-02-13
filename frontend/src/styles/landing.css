@@ -1,0 +1,14 @@
+/* Landing Page Styles - Only for Landing Page */
+@import './navbar.css';
+@import './hero.css';
+@import './features.css';
+@import './device-mockup.css';
+
+.landing-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFF9FA 0%, #FAD5DC 100%);
+}
+
+.landing-page__main {
+    padding-top: 4rem; /* Space for fixed navbar */
+} 

@@ -1,0 +1,1320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-pink-light: #fad5dc;
+    --color-pink: #FBA8C2;
+    --color-coral: #FF8C69;
+    --color-teal: #58C2B3;
+    --color-indigo: #4C51BF;
+    --color-background: #FFF9FA; /* Very light, almost white pastel background */
+    --color-text: #33303D; /* Near-black for better readability */
+    --color-light-gray: #E0E0E0; /* For subtle borders/separators */
+    --color-medium-gray: #666; /* For secondary text */
+    --color-dark-gray: #888; /* For hints */
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Base styles for cards to be used across the dashboard */
+.dashboard-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-light-gray);
+    padding: 20px;
+}
+
+/* Overall Design Principles */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Ensure full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: var(--color-background); /* Use the new light pastel background */
+    background-image: url('../assets/period-pattern.png');
+    background-repeat: repeat;
+    background-size: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Global box-sizing */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Consistent font as per brief */
+    background-color: var(--color-background); /* Ensure body uses the new background */
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Styles for the entire "Our Core Features" section --- */
+.features-section {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: var(--color-background-light);
+}
+
+.features-section .section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-indigo);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.features-section .section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 6px;
+    background-color: var(--color-pink);
+    opacity: 0.3;
+    border-radius: 3px;
+    margin: 8px auto 0 auto;
+}
+
+.features-section .section-description {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+/* --- Grid Layout for Feature Cards --- */
+.features-grid {
+    display: grid;
+    /* For desktop and larger screens: creates 4 columns of equal width */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px; /* Increased max-width to accommodate 4 columns */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- Styling for Individual Feature Cards --- */
+.feature-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Styling for the Icons within Feature Cards --- */
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card img.feature-icon {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* --- Typography within Feature Cards --- */
+.feature-card h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-indigo);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: var(--color-medium-gray);
+    line-height: 1.6;
+}
+
+/* Alternating Feature Row Styles (for Zig-Zag layout) */
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 3rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-row.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.feature-row .feature-content {
+    flex: 1;
+    padding: 0 2rem;
+}
+
+.feature-row .feature-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-indigo);
+    margin-bottom: 1rem;
+}
+
+.feature-row .feature-content p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.feature-row .feature-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-row .feature-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--color-indigo);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-content .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+.footer-content .footer-links a:hover {
+    opacity: 0.7;
+}
+
+/* Call to Action Button Styles */
+.cta-button {
+    background-color: var(--color-coral);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Allows padding and transformation */
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #ff7f50; /* Slightly darker coral */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Page Styles */
+.login-page-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: white !important;
+}
+
+.login-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: white; /* Changed to white */
+}
+
+.login-form-container form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-indigo);
+    margin-bottom: 15px;
+}
+
+.login-form-container p {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: var(--color-pink);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 168, 194, 0.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-text);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.form-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-options a {
+    color: var(--color-coral);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.form-options a:hover {
+    color: var(--color-indigo);
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-pink);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #e08ea2;
+}
+
+.or-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: var(--color-medium-gray);
+    font-size: 0.9rem;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.or-separator:not(:empty)::before {
+    margin-right: .25em;
+}
+
+.or-separator:not(:empty)::after {
+    margin-left: .25em;
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-button:hover {
+    background-color: #f9f9f9;
+    border-color: var(--color-pink);
+}
+
+.social-button i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.social-button.google {
+    color: #DB4437;
+}
+
+.social-button.google:hover {
+    background-color: #fcebeb;
+}
+
+.social-button.facebook {
+    color: #4267B2;
+}
+
+.social-button.facebook:hover {
+    background-color: #e6eef9;
+}
+
+.social-button.apple {
+    color: #000000;
+}
+
+.social-button.apple:hover {
+    background-color: #e9e9e9;
+}
+
+.signup-link {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.signup-link a {
+    color: var(--color-coral);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.signup-link a:hover {
+    color: var(--color-indigo);
+}
+
+.login-visual-container {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-visual-container .login-illustration {
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive adjustments for Login Page */
+@media (max-width: 992px) {
+    .login-page-container {
+        flex-direction: column;
+    }
+
+    .login-form-container {
+        padding: 30px;
+    }
+
+    .login-visual-container {
+        min-height: 300px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form-container {
+        padding: 20px;
+    }
+
+    .login-form-container h2 {
+        font-size: 2rem;
+    }
+
+    .social-login {
+        gap: 10px;
+    }
+}
+
+/* Chatbot icon */
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-pink);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+.chatbot-icon:hover {
+    background-color: #e08ea2;
+    transform: translateY(-3px);
+}
+
+
+/* Registration Page Styles */
+.registration-page-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.registration-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+}
+
+.registration-form-container form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.registration-form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-indigo);
+    margin-bottom: 15px;
+}
+
+.registration-form-container p {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 30px;
+}
+
+.registration-form-container .password-hint {
+    font-size: 0.85rem;
+    color: var(--color-medium-gray);
+    margin-top: 4px;
+    margin-bottom: 16px;
+    display: block;
+    line-height: 1.4;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.checkbox-group label {
+    font-size: 0.95rem;
+    font-weight: 600; /* Adjusted font weight */
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif; /* Applied Poppins font */
+}
+
+.checkbox-group a {
+    color: var(--color-coral);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.checkbox-group a:hover {
+    color: var(--color-indigo);
+}
+
+.registration-form-container .login-link,
+.registration-form-container .privacy-link {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.registration-form-container .login-link a,
+.registration-form-container .privacy-link a {
+    color: var(--color-coral);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.registration-form-container .login-link a:hover,
+.registration-form-container .privacy-link a:hover {
+    color: var(--color-indigo);
+}
+
+/* Reusing input-group styles from login for consistency */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600; /* Adjusted font weight */
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif; /* Applied Poppins font */
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus,
+.input-group input[type="date"]:focus {
+    border-color: var(--color-pink);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 168, 194, 0.2);
+}
+
+.primary-button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-pink);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.primary-button:hover {
+    background-color: #e08ea2;
+}
+
+.registration-visual-container {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.registration-visual-container .registration-illustration {
+    max-width: 80%;
+    height: 100%; /* Increased height to 100% */
+    object-fit: contain;
+}
+
+/* Responsive adjustments for Registration Page */
+@media (max-width: 992px) {
+    .registration-page-container {
+        flex-direction: column;
+    }
+
+    .registration-form-container {
+        padding: 30px;
+    }
+
+    .registration-visual-container {
+        min-height: 300px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-form-container {
+        padding: 20px;
+    }
+
+    .registration-form-container h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* Dashboard Layout */
+.dashboard-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start of the cross axis */
+    padding: 20px; /* Add some padding around the whole dashboard */
+    gap: 20px; /* Space between the two main panels */
+    min-height: 100vh; /* Ensure it takes full height */
+    background-color: var(--color-pink-light); /* Overall light pink background */
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-left-panel {
+    flex: 0 0 380px; /* Fixed width for the mobile-like view */
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Elevated shadow */
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for content inside if it overflows */
+    height: 90vh; /* Set a specific height to mimic a device screen */
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-right-panel {
+    flex-grow: 1; /* Takes remaining space */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for cards */
+    gap: 20px; /* Space between cards in the right panel */
+    align-content: start; /* Align content to the start */
+    padding: 20px;
+    background-color: var(--color-pink-light); /* Maintain the light pink background for the right side */
+}
+
+.dashboard-content-grid {
+    display: flex; /* Change to flex for vertical stacking */
+    flex-direction: column;
+    gap: 15px; /* Space between cards in the left panel */
+    flex-grow: 1; /* Allow content to grow */
+}
+
+/* Dashboard Header Adjustments for the new layout */
+.dashboard-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0; /* Remove existing padding, it's handled by left-panel */
+    margin-bottom: 20px; /* Space below header */
+    width: 100%;
+}
+
+.dashboard-header .greeting {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+.dashboard-header .current-date {
+    font-size: 0.9rem;
+    color: var(--color-medium-gray);
+}
+
+/* Updated Cycle Progress Card for the new design */
+.cycle-progress-card {
+    background-color: #fff; /* Ensure white background for the card */
+    border-radius: 15px;
+    box-shadow: none; /* Remove shadow, parent handles it */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-light-gray); /* Subtle border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.cycle-header-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.cycle-header-meta span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cycle-header-meta i {
+    font-size: 1.2rem;
+    color: var(--color-medium-gray);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cycle-header-meta i:hover {
+    color: var(--color-pink);
+}
+
+.cycle-visual-wrapper {
+    position: relative;
+    width: 250px; /* Size of the main circle */
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.cycle-circle-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #f9d2d2 0% 15%, /* Light pink for period days */
+        #ffb6c1 15% 30%, /* Medium pink for fertile days */
+        #e0e0e0 30% 100% /* Light gray for non-fertile days */
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cycle-circle-inner {
+    width: 80%; /* Inner circle size */
+    height: 80%;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Inner shadow for depth */
+}
+
+.countdown-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-coral);
+    margin-bottom: 5px;
+}
+
+.fertility-text {
+    font-size: 0.9rem;
+    color: var(--color-medium-gray);
+}
+
+/* Styles for the small date circles around the main circle */
+.cycle-day-number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #f0f0f0; /* Default background for days */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cycle-day-number.highlighted {
+    background-color: var(--color-pink); /* Highlight for selected day */
+    color: white;
+}
+
+.cycle-date-text {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: var(--color-medium-gray);
+}
+
+.edit-period-button {
+    background-color: var(--color-pink);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.edit-period-button:hover {
+    background-color: #e08ea2;
+}
+
+/* Calendar Card */
+.calendar-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: none; /* Parent handles shadow */
+    border: 1px solid var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.calendar-navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar-navigation button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-medium-gray);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.calendar-navigation button:hover {
+    color: var(--color-pink);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+    gap: 5px;
+    text-align: center;
+}
+
+.day-of-week {
+    font-size: 0.8rem;
+    color: var(--color-medium-gray);
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.calendar-day {
+    width: 35px; /* Fixed size for calendar circles */
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.calendar-day:hover {
+    background-color: var(--color-pink-light);
+}
+
+.calendar-day.today {
+    background-color: var(--color-pink);
+    color: white;
+}
+
+.calendar-day.period {
+    background-color: #f9d2d2; /* Light pink for period days */
+}
+
+.calendar-day.fertile {
+    background-color: #ffb6c1; /* Medium pink for fertile days */
+}
+
+.calendar-day.selected {
+    outline: 2px solid var(--color-coral); /* Outline for selected day */
+}
+
+.empty-day {
+    visibility: hidden; /* Hide empty cells */
+}
+
+/* Quick Overview Section */
+.quick-overview-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.quick-overview-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 3 cards in a row */
+    gap: 15px;
+}
+
+/* Individual Quick Overview Cards */
+.symptoms-tracker-card,
+.mood-tracker-card,
+.notes-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for quick overview cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--color-light-gray);
+}
+
+.symptoms-tracker-card h3,
+.mood-tracker-card h3,
+.notes-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* Notification Card (if it were to be included) */
+.notification-card {
+    background-color: #ffe0b2; /* A soft orange/peach */
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(255, 140, 105, 0.1);
+    margin-top: 20px;
+    border: 1px solid rgba(255, 140, 105, 0.3);
+}
+
+.notification-icon {
+    font-size: 1.8rem;
+    color: var(--color-coral);
+}
+
+.notification-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.notification-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-coral);
+    margin-bottom: 3px;
+}
+
+.notification-content p {
+    font-size: 0.85rem;
+    color: #a0522d; /* Darker shade for text */
+    line-height: 1.4;
+}
+
+.notification-action-icon {
+    font-size: 1.4rem;
+    color: var(--color-coral);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.notification-action-icon:hover {
+    transform: translateX(5px);
+}
+
+/* Specific Styles for Mood/Symptoms/Notes cards */
+.symptoms-tracker-card {
+    background-color: #e6f7ff; /* Light blue */
+    border-color: #b3e0ff;
+}
+
+.mood-tracker-card {
+    background-color: #fff0e6; /* Light orange */
+    border-color: #ffcc99;
+}
+
+.notes-card {
+    background-color: #e6ffe6; /* Light green */
+    border-color: #b3ffb3;
+}
+
+/* Right Panel specific cards (Moods, Temperature, Period Length) */
+.dashboard-right-panel .dashboard-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Specific styles for the right panel cards to match the image */
+
+/* Moods Card */
+.moods-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.moods-chart-container {
+    width: 100%;
+    height: 150px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Placeholder for chart */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+/* Temperature Card */
+.temperature-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.temperature-chart-container {
+    width: 100%;
+    height: 150px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Placeholder for chart */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+/* Period Length Card */
+.period-length-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.period-length-chart-container {
+    width: 100%;
+    height: 150px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Placeholder for chart */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .dashboard-page-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .dashboard-left-panel {
+        width: 100%;
+        max-width: 380px; /* Keep fixed width on smaller screens */
+        height: auto; /* Allow height to adjust */
+        margin-bottom: 20px;
+    }
+
+    .dashboard-right-panel {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-left-panel {
+        padding: 15px;
+    }
+
+    .dashboard-header .greeting {
+        font-size: 1.3rem;
+    }
+
+    .cycle-visual-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .countdown-text {
+        font-size: 1.8rem;
+    }
+
+    .quick-overview-title {
+        font-size: 1.1rem;
+    }
+
+    .quick-overview-cards-wrapper {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-page-container {
+        padding: 10px;
+    }
+
+    .dashboard-left-panel {
+        border-radius: 15px;
+    }
+
+    .dashboard-right-panel {
+        gap: 15px;
+    }
+
+    .cycle-visual-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .cycle-day-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.7rem;
+    }
+
+    .calendar-day {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+}
+
+.legal-page {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.08);
+  font-size: 1.05rem;
+  color: #444;
+}
+.legal-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #d946ef;
+}
+.legal-page h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.7rem;
+  color: #a78bfa;
+}
+.legal-page ul {
+  margin-left: 1.5rem;
+  list-style: disc;
+}
+.legal-page p {
+  margin-bottom: 1rem;
+}
