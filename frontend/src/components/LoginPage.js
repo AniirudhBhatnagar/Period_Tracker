@@ -37,7 +37,7 @@ const LoginPage = () => {
                         <span>Or</span>
                     </div>
                     <div className="social-login">
-                        <button type="button" className="social-button google" onClick={() => { window.location.href = 'https://period-tracker-backend.onrender.com/auth/google'; }}>
+                        <button type="button" className="social-button google" onClick={() => { window.location.href = 'https://period-tracker-backend.onrender.com/api/auth/google'; }}>
                             <i className="fab fa-google"></i> Google
                         </button>
                         <button className="social-button facebook">
